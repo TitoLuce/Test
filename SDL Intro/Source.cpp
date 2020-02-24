@@ -24,16 +24,21 @@ int main(int argc, char* argv[])  //Cuantos argumentos hemos recibido en el exe?
 	}
 	else
 	{
-	screenSurface = SDL_GetWindowSurface(window);
-	SDL_FillRect(screenSurface, NULL, SDL_MapRGB(screenSurface->format, 0xAA, 0xFF, 0xBB));
-	SDL_UpdateWindowSurface(window);
-
-
-    }
-	
+	int x = 0;
+	int y = 0;
 	while (1)
 	{
-		
+		screenSurface = SDL_GetWindowSurface(window);
+		SDL_FillRect(screenSurface, NULL, SDL_MapRGB(screenSurface->format, 0x00, 0xF7, 0xFF));
+		SDL_Rect rect = { x,y,100,100 };
+		SDL_FillRect(screenSurface, &rect, SDL_MapRGB(screenSurface->format, 0xFF, 0x00, 0x3E));
+		SDL_UpdateWindowSurface(window);
+		x++;
+		y++;
 	}
+	
+	
+    }
+	
 	return 0;
 }
