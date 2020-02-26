@@ -1,11 +1,14 @@
 #include <stdio.h>
 #include <iostream>
 #include "SDL/include/SDL.h"
+#include "SDL_image/include/SDL_image.h"
 #pragma comment(lib,"SDL/x86/SDL2.lib")
 #pragma comment(lib, "SDL/x86/SDL2main.lib")
+#pragma comment(lib,"SDL_Image/x86/SDL2_image.lib")
 
 SDL_Rect rect = { 0,0,100,100 };
 SDL_Rect Laser[10] = { rect.x,rect.y,50,25 };
+SDL_Renderer 
 int laserCount = 0;
 SDL_Event event;
 bool quit = false;
@@ -14,6 +17,7 @@ int main(int argc, char* argv[])  //Cuantos argumentos hemos recibido en el exe?
 {
 	SDL_Window* window = NULL;
 	SDL_Surface* screenSurface = NULL;
+	SDL_Surface* image = NULL;
 
 	if (SDL_Init(SDL_INIT_VIDEO) < 0)
 	{
@@ -31,8 +35,8 @@ int main(int argc, char* argv[])  //Cuantos argumentos hemos recibido en el exe?
 	else
 	{
 		screenSurface = SDL_GetWindowSurface(window);
-
-		
+		SDL_Surface* surf =IMG_Load("NEPU.png");
+		SDL_Texture* text=SDL_CreateTextureFromSurface()
 		while (!quit)
 		{
 			while (SDL_PollEvent(&event) != 0)
@@ -61,13 +65,13 @@ int main(int argc, char* argv[])  //Cuantos argumentos hemos recibido en el exe?
 						rect.x++;
 						break;
 					case SDLK_SPACE:
-						SDL_FillRect(screenSurface, &Laser[laserCount], SDL_MapRGB(screenSurface->format, 0xFF, 0x00, 0x3E));
+						SDL_FillRect(screenSurface, &Laser[laserCount], SDL_MapRGB(screenSurface->format, 0x00, 0x00, 0x00));
 						break;
 					}
 				}
 			}
 			SDL_FillRect(screenSurface, NULL, SDL_MapRGB(screenSurface->format, 0x00, 0xF7, 0xFF));
-			SDL_FillRect(screenSurface, &rect, SDL_MapRGB(screenSurface->format, 0xFF, 0x00, 0x3E));
+			//SDL_FillRect(screenSurface, &rect, SDL_MapRGB(screenSurface->format, 0xFF, 0x00, 0x3E));
 			SDL_UpdateWindowSurface(window);
 
 		}
