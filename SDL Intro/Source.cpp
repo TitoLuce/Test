@@ -1,8 +1,14 @@
-#include <stdlib.h>
+#include <stdio.h>
 #include <iostream>
 #include "SDL/include/SDL.h"
 #pragma comment(lib,"SDL/x86/SDL2.lib")
 #pragma comment(lib, "SDL/x86/SDL2main.lib")
+
+SDL_Rect rect = { 0,0,100,100 };
+SDL_Rect Laser[10] = { rect.x,rect.y,50,25 };
+int laserCount = 0;
+SDL_Event event;
+bool quit = false;
 
 int main(int argc, char* argv[])  //Cuantos argumentos hemos recibido en el exe? Array con la lista de argumentos   (Argument count/Argument variables)
 {
@@ -24,21 +30,50 @@ int main(int argc, char* argv[])  //Cuantos argumentos hemos recibido en el exe?
 	}
 	else
 	{
-	int x = 0;
-	int y = 0;
-	while (1)
-	{
 		screenSurface = SDL_GetWindowSurface(window);
-		SDL_FillRect(screenSurface, NULL, SDL_MapRGB(screenSurface->format, 0x00, 0xF7, 0xFF));
-		SDL_Rect rect = { x,y,100,100 };
-		SDL_FillRect(screenSurface, &rect, SDL_MapRGB(screenSurface->format, 0xFF, 0x00, 0x3E));
-		SDL_UpdateWindowSurface(window);
-		x++;
-		y++;
-	}
-	
+
+		
+		while (!quit)
+		{
+			while (SDL_PollEvent(&event) != 0)
+			{
+				if (event.type == SDL_QUIT)
+				{
+					quit = true;
+				}
+				else if (event.type == SDL_KEYDOWN)
+				{
+					switch(event.key.keysym.sym)
+					{
+					case SDLK_ESCAPE:
+						quit = true;
+						break;
+					case SDLK_UP:
+						rect.y--;
+						break;
+					case SDLK_DOWN:
+						rect.y++;
+						break;
+					case SDLK_LEFT:
+						rect.x--;
+						break;
+					case SDLK_RIGHT:
+						rect.x++;
+						break;
+					case SDLK_SPACE:
+						SDL_FillRect(screenSurface, &Laser[laserCount], SDL_MapRGB(screenSurface->format, 0xFF, 0x00, 0x3E));
+						break;
+					}
+				}
+			}
+			SDL_FillRect(screenSurface, NULL, SDL_MapRGB(screenSurface->format, 0x00, 0xF7, 0xFF));
+			SDL_FillRect(screenSurface, &rect, SDL_MapRGB(screenSurface->format, 0xFF, 0x00, 0x3E));
+			SDL_UpdateWindowSurface(window);
+
+		}
 	
     }
+	
 	
 	return 0;
 }
