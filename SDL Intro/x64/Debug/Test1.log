@@ -1,0 +1,14 @@
+﻿Source.obj : error LNK2019: símbolo externo SDL_RWFromFile sin resolver al que se hace referencia en la función SDL_main
+Source.obj : error LNK2019: símbolo externo SDL_MapRGB sin resolver al que se hace referencia en la función SDL_main
+Source.obj : error LNK2019: símbolo externo SDL_LoadBMP_RW sin resolver al que se hace referencia en la función SDL_main
+Source.obj : error LNK2019: símbolo externo SDL_FillRect sin resolver al que se hace referencia en la función SDL_main
+Source.obj : error LNK2019: símbolo externo SDL_CreateWindow sin resolver al que se hace referencia en la función SDL_main
+Source.obj : error LNK2019: símbolo externo SDL_GetWindowSurface sin resolver al que se hace referencia en la función SDL_main
+Source.obj : error LNK2019: símbolo externo SDL_UpdateWindowSurface sin resolver al que se hace referencia en la función SDL_main
+Source.obj : error LNK2019: símbolo externo SDL_DestroyWindow sin resolver al que se hace referencia en la función SDL_main
+Source.obj : error LNK2019: símbolo externo SDL_Quit sin resolver al que se hace referencia en la función SDL_main
+MSVCRTD.lib(exe_main.obj) : error LNK2019: símbolo externo main sin resolver al que se hace referencia en la función "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
+SDL\x86\SDL2.lib : warning LNK4272: el tipo de máquina de biblioteca 'x86' está en conflicto con el tipo de máquina de destino 'x64'
+SDL\x86\SDL2main.lib : warning LNK4272: el tipo de máquina de biblioteca 'x86' está en conflicto con el tipo de máquina de destino 'x64'
+SDL_Image\x86\SDL2_image.lib : warning LNK4272: el tipo de máquina de biblioteca 'x86' está en conflicto con el tipo de máquina de destino 'x64'
+C:\Users\Usuario\Documents\GitHub\Test\SDL Intro\x64\Debug\Test1.exe : fatal error LNK1120: 10 externos sin resolver
