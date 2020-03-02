@@ -23,6 +23,7 @@
 
 #ifndef SDL_IMAGE_H_
 #define SDL_IMAGE_H_
+
 #include "SDL/include/SDL.h"
 #include "SDL/include/SDL_version.h"
 #include "SDL/include/begin_code.h"
